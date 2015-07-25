@@ -63,7 +63,7 @@ Want to contribute? Great!
 You might want to check out the open issues or fork this repository to create a pull request. I'd love to see something like that.
 
 ### Todo's
-- Add Left-Alignment to NSTextView because otherwise it breaks on large app names
+- None yet, If you have a Todo please create an issue
 
 
 ### License
