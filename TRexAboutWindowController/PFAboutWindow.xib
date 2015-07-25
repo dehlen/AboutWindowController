@@ -92,7 +92,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="320" height="77"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
-                                <textView editable="NO" drawsBackground="NO" importsGraphics="NO" findStyle="panel" verticallyResizable="YES" id="zPN-eo-Xhd">
+                                <textView editable="NO" drawsBackground="NO" importsGraphics="NO" baseWritingDirection="leftToRight" findStyle="panel" verticallyResizable="YES" id="zPN-eo-Xhd">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="77"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <color key="textColor" name="disabledControlTextColor" catalog="System" colorSpace="catalog"/>
@@ -126,6 +126,7 @@
                     <constraint firstAttribute="bottom" secondItem="jVa-hc-yOo" secondAttribute="bottom" constant="14" id="NK0-Hm-eey"/>
                     <constraint firstAttribute="trailing" secondItem="EGl-r9-3F1" secondAttribute="trailing" constant="27" id="RPs-4l-c4B"/>
                     <constraint firstItem="EGl-r9-3F1" firstAttribute="top" secondItem="2" secondAttribute="top" id="aPH-j0-XNe"/>
+                    <constraint firstItem="U77-wg-poj" firstAttribute="leading" secondItem="vfk-bf-9S1" secondAttribute="trailing" constant="18" id="aad-9Q-KCu"/>
                     <constraint firstAttribute="bottom" secondItem="g3a-Su-h5L" secondAttribute="bottom" constant="14" id="cTd-d7-Xxb"/>
                     <constraint firstItem="EGl-r9-3F1" firstAttribute="leading" secondItem="vfk-bf-9S1" secondAttribute="trailing" constant="21" id="dIX-Ih-EJz"/>
                     <constraint firstAttribute="trailing" secondItem="ipZ-Gg-r2C" secondAttribute="trailing" constant="24" id="e15-a9-S5Q"/>
