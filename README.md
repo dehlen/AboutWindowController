@@ -1,10 +1,5 @@
 # TRexAboutWindowController
-
-T-Rex is a beautifully designed Mac application to write and compile LaTeX documents.
-As an addition it is the first Swift-only LaTeX editor.
-The application also features a command-line-interface which is written in Ruby.
-
-You can find both of them here: [T-Rex Repositories](https://github.com/T-Rex-Editor).
+Swift clone of PFAboutWindow
 
 ### PFAboutWindow
 [PFAboutWindow](https://github.com/perfaram/PFAboutWindow) is a Objective-C-Only library which provides a pretty designed About-Window for your application. Is is super easy to show credits, eula and copyright information in a great looking window which is oriented on Xcode6's About-Window design.
@@ -18,9 +13,9 @@ Since there was no Swift version of this library I thought I'd convert it by mys
 ### Screenshots
 Before you download/install the application you can get a little sneak peek by looking at this screenshots:
 
-![alt tag](https://raw.github.com/T-Rex-Editor/TRexAboutWindowController/master/screenshot1.png)
+![alt tag](https://raw.github.com/dehlen/TRexAboutWindowController/master/screenshot1.png)
 
-![alt tag](https://raw.github.com/T-Rex-Editor/TRexAboutWindowController/master/screenshot2.png)
+![alt tag](https://raw.github.com/dehlen/TRexAboutWindowController/master/screenshot2.png)
 
 ### Installation/Usage
 
