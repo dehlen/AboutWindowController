@@ -5,7 +5,7 @@ Swift clone of PFAboutWindow
 [PFAboutWindow](https://github.com/perfaram/PFAboutWindow) is a Objective-C-Only library which provides a pretty designed About-Window for your application. Is is super easy to show credits, eula and copyright information in a great looking window which is oriented on Xcode6's About-Window design.
 
 ### Purpose
-Since there was no Swift version of this library I thought I'd convert it by myself. You can find a Swift clone of PFAboutWindow in this repository. Also the .xib file was migrated to use AutoLayout. Everything is supported except for localizing the Buttons and the version label. Feel free to add it on your own and create a pull request !
+Since there was no Swift version of this library I thought I'd convert it by myself. You can find a Swift clone of PFAboutWindow in this repository. Also the .xib file was migrated to use AutoLayout. Everything is supported except for localizing the Buttons. If you need to localize the buttons you have to add it by yourself by creating a Localizable.strings file. Feel free to add it on your own and create a pull request !
 
 ### Version
 1.0
