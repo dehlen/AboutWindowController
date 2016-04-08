@@ -8,7 +8,7 @@ Swift clone of PFAboutWindow
 Since there was no Swift version of this library I thought I'd convert it by myself. You can find a Swift clone of PFAboutWindow in this repository. Also the .xib file was migrated to use AutoLayout. Everything is supported except for localizing the Buttons. If you need to localize the buttons you have to add it by yourself by creating a Localizable.strings file. Feel free to add it on your own and create a pull request !
 
 ### Version
-1.0
+1.2
 
 ### Screenshots
 Before you download/install the application you can get a little sneak peek by looking at this screenshots:
@@ -19,11 +19,16 @@ Before you download/install the application you can get a little sneak peek by l
 
 ### Installation/Usage
 
-Just open it by double-clicking the *.xcodeproj file. Please note that you need minimum Xcode 7 because the whole application is written in Swift 2.0.
+This library can be installed via Cocoapods:
 
-If you want to add this library to your own project you can do it like this:
-- Add TRexAboutWindowController and PFAboutWindow.xib to your project
+```
+	pod 'TRexAboutWindowController'
+```
+
+Then just add it to your project like so:
+
 ```swift
+import TRexAboutWindowController
 
 var aboutWindowController:TRexAboutWindowController
 
@@ -46,11 +51,11 @@ override init() {
         self.aboutWindowController .showWindow(nil)
     }
 
-
 ```
 
 - Connect the IBAction showAboutWindow with the About menu entry or some button you want.
 
+You can also have a look at the Demo project to get an idea of how to integrate this library into your project.
 
 ### Development
 
@@ -59,7 +64,6 @@ You might want to check out the open issues or fork this repository to create a 
 
 ### Todo's
 - None yet, If you have a Todo please create an issue
-
 
 ### License
 ----
