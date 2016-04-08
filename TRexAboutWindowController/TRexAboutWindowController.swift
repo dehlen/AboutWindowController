@@ -54,7 +54,8 @@ class TRexAboutWindowController : NSWindowController {
         self.infoView.layer!.backgroundColor = NSColor.whiteColor().CGColor
         self.window?.backgroundColor = NSColor.whiteColor()
         self.window?.hasShadow = self.windowShouldHaveShadow
-        
+        self.visitWebsiteButton.cell.setHighlightsBy(NSContentsCellMask)
+
         if self.appName.characters.count <= 0 {
             self.appName = valueFromInfoDict("CFBundleName")
         }
