@@ -22,7 +22,7 @@ Before you download/install the application you can get a little sneak peek by l
 This library can be installed via Cocoapods:
 
 ```
-	pod 'TRexAboutWindowController'
+pod 'TRexAboutWindowController'
 ```
 
 Then just add it to your project like so:
@@ -53,8 +53,7 @@ override init() {
 
 ```
 
-- Connect the IBAction showAboutWindow with the About menu entry or some button you want.
-
+Then connect the IBAction `showAboutWindow` with the About menu entry or some button you want.
 You can also have a look at the Demo project to get an idea of how to integrate this library into your project.
 
 ### Development
