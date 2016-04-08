@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class TRexAboutWindowController : NSWindowController {
+public class TRexAboutWindowController : NSWindowController {
     var appName : String = ""
     var appVersion : String = ""
     var appCopyright : NSAttributedString
@@ -36,7 +36,7 @@ class TRexAboutWindowController : NSWindowController {
         super.init(window: window)
     }
     
-    required init?(coder: NSCoder) {
+    required public init?(coder: NSCoder) {
         self.appCopyright = NSAttributedString()
         self.appCredits = NSAttributedString()
         self.appEULA = NSAttributedString()
@@ -46,7 +46,7 @@ class TRexAboutWindowController : NSWindowController {
         super.init(coder: coder)
     }
     
-    override func windowDidLoad() {
+    override public func windowDidLoad() {
         super.windowDidLoad()
         self.windowState = 0
         self.infoView.wantsLayer = true
@@ -154,7 +154,7 @@ class TRexAboutWindowController : NSWindowController {
         return true
     }
     
-    override func showWindow(sender: AnyObject?) {
+    override public func showWindow(sender: AnyObject?) {
         super.showWindow(sender)
     }
     
