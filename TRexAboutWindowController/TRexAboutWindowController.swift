@@ -9,15 +9,15 @@
 import Cocoa
 
 public class TRexAboutWindowController : NSWindowController {
-    var appName : String = ""
-    var appVersion : String = ""
-    var appCopyright : NSAttributedString
-    var appCredits : NSAttributedString
-    var appEULA : NSAttributedString
-    var appURL : NSURL
-    var textShown : NSAttributedString
-    var windowState : Int = 0
-    var windowShouldHaveShadow: Bool = true
+    public var appName : String = ""
+    public var appVersion : String = ""
+    public var appCopyright : NSAttributedString
+    public var appCredits : NSAttributedString
+    public var appEULA : NSAttributedString
+    public var appURL : NSURL
+    public var textShown : NSAttributedString
+    public var windowState : Int = 0
+    public var windowShouldHaveShadow: Bool = true
     
     @IBOutlet var infoView: NSView!
     @IBOutlet var textField: NSTextView!
@@ -54,7 +54,7 @@ public class TRexAboutWindowController : NSWindowController {
         self.infoView.layer!.backgroundColor = NSColor.whiteColor().CGColor
         self.window?.backgroundColor = NSColor.whiteColor()
         self.window?.hasShadow = self.windowShouldHaveShadow
-
+        
         if self.appName.characters.count <= 0 {
             self.appName = valueFromInfoDict("CFBundleName")
         }
@@ -71,14 +71,14 @@ public class TRexAboutWindowController : NSWindowController {
                 let font:NSFont? = NSFont(name: "HelveticaNeue", size: 11.0)
                 let color:NSColor? = NSColor.lightGrayColor()
                 let attribs:[String:AnyObject] = [NSForegroundColorAttributeName:color!,
-                    NSFontAttributeName:font!]
+                                                  NSFontAttributeName:font!]
                 self.appCopyright = NSAttributedString(string: valueFromInfoDict("NSHumanReadableCopyright"), attributes:attribs)
             }
             else {
                 let font:NSFont? = NSFont(name: "HelveticaNeue", size: 11.0)
                 let color:NSColor? = NSColor.tertiaryLabelColor()
                 let attribs:[String:AnyObject] = [NSForegroundColorAttributeName:color!,
-                    NSFontAttributeName:font!]
+                                                  NSFontAttributeName:font!]
                 self.appCopyright = NSAttributedString(string: valueFromInfoDict("NSHumanReadableCopyright"), attributes:attribs)
             }
         }
@@ -149,7 +149,7 @@ public class TRexAboutWindowController : NSWindowController {
         self.textField.textStorage!.setAttributedString(self.appCopyright)
     }
     
-    func windowShouldClose(sender: AnyObject) -> Bool {
+    public func windowShouldClose(sender: AnyObject) -> Bool {
         self.showCopyright(sender)
         return true
     }
