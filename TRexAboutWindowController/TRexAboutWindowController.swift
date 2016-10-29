@@ -8,16 +8,16 @@
 
 import Cocoa
 
-public class TRexAboutWindowController : NSWindowController {
-    public var appName : String = ""
-    public var appVersion : String = ""
-    public var appCopyright : NSAttributedString
-    public var appCredits : NSAttributedString
-    public var appEULA : NSAttributedString
-    public var appURL : NSURL
-    public var textShown : NSAttributedString
-    public var windowState : Int = 0
-    public var windowShouldHaveShadow: Bool = true
+open class TRexAboutWindowController : NSWindowController {
+    open var appName : String = ""
+    open var appVersion : String = ""
+    open var appCopyright : NSAttributedString
+    open var appCredits : NSAttributedString
+    open var appEULA : NSAttributedString
+    open var appURL : URL?
+    open var textShown : NSAttributedString
+    open var windowState : Int = 0
+    open var windowShouldHaveShadow: Bool = true
     
     @IBOutlet var infoView: NSView!
     @IBOutlet var textField: NSTextView!
@@ -30,7 +30,7 @@ public class TRexAboutWindowController : NSWindowController {
         self.appCopyright = NSAttributedString()
         self.appCredits = NSAttributedString()
         self.appEULA = NSAttributedString()
-        self.appURL = NSURL()
+        
         self.textShown = NSAttributedString()
         
         super.init(window: window)
@@ -40,19 +40,19 @@ public class TRexAboutWindowController : NSWindowController {
         self.appCopyright = NSAttributedString()
         self.appCredits = NSAttributedString()
         self.appEULA = NSAttributedString()
-        self.appURL = NSURL()
+        
         self.textShown = NSAttributedString()
         
         super.init(coder: coder)
     }
     
-    override public func windowDidLoad() {
+    override open func windowDidLoad() {
         super.windowDidLoad()
         self.windowState = 0
         self.infoView.wantsLayer = true
         self.infoView.layer!.cornerRadius = 10.0
-        self.infoView.layer!.backgroundColor = NSColor.whiteColor().CGColor
-        self.window?.backgroundColor = NSColor.whiteColor()
+        self.infoView.layer!.backgroundColor = NSColor.white.cgColor
+        self.window?.backgroundColor = NSColor.white
         self.window?.hasShadow = self.windowShouldHaveShadow
         
         if self.appName.characters.count <= 0 {
@@ -69,14 +69,14 @@ public class TRexAboutWindowController : NSWindowController {
         if self.appCopyright.string.characters.count <= 0 {
             if floor(NSAppKitVersionNumber) <= Double(NSAppKitVersionNumber10_9) {
                 let font:NSFont? = NSFont(name: "HelveticaNeue", size: 11.0)
-                let color:NSColor? = NSColor.lightGrayColor()
+                let color:NSColor? = NSColor.lightGray
                 let attribs:[String:AnyObject] = [NSForegroundColorAttributeName:color!,
                                                   NSFontAttributeName:font!]
                 self.appCopyright = NSAttributedString(string: valueFromInfoDict("NSHumanReadableCopyright"), attributes:attribs)
             }
             else {
                 let font:NSFont? = NSFont(name: "HelveticaNeue", size: 11.0)
-                let color:NSColor? = NSColor.tertiaryLabelColor()
+                let color:NSColor? = NSColor.tertiaryLabelColor
                 let attribs:[String:AnyObject] = [NSForegroundColorAttributeName:color!,
                                                   NSFontAttributeName:font!]
                 self.appCopyright = NSAttributedString(string: valueFromInfoDict("NSHumanReadableCopyright"), attributes:attribs)
@@ -84,21 +84,21 @@ public class TRexAboutWindowController : NSWindowController {
         }
         
         if self.appCredits.string.characters.count <= 0 {
-            if let creditsRTF = NSBundle.mainBundle().pathForResource("Credits", ofType: "rtf") {
+            if let creditsRTF = Bundle.main.path(forResource: "Credits", ofType: "rtf") {
                 self.appCredits = NSAttributedString(path: creditsRTF, documentAttributes: nil)!
             }
             else {
-                self.creditsButton.hidden = true
+                self.creditsButton.isHidden = true
                 print("Credits not found in bundle. Hiding Credits Button.")
             }
         }
         
         if self.appEULA.string.characters.count <= 0 {
-            if let eulaRTF = NSBundle.mainBundle().pathForResource("EULA", ofType: "rtf") {
+            if let eulaRTF = Bundle.main.path(forResource: "EULA", ofType: "rtf") {
                 self.appEULA = NSAttributedString(path: eulaRTF, documentAttributes: nil)!
             }
             else {
-                self.EULAButton.hidden = true
+                self.EULAButton.isHidden = true
                 print("EULA not found in bundle. Hiding EULA Button.")
             }
         }
@@ -108,11 +108,13 @@ public class TRexAboutWindowController : NSWindowController {
         self.EULAButton.title = "EULA"
     }
     
-    @IBAction func visitWebsite(sender: AnyObject) {
-        NSWorkspace.sharedWorkspace().openURL(self.appURL)
+    @IBAction func visitWebsite(_ sender: AnyObject) {
+        guard let url = self.appURL else { return }
+        
+        NSWorkspace.shared().open(url)
     }
     
-    @IBAction func showCredits(sender: AnyObject) {
+    @IBAction func showCredits(_ sender: AnyObject) {
         if self.windowState != 1 {
             let amountToIncreaseHeight:CGFloat  = 100
             var oldFrame:NSRect = self.window!.frame
@@ -124,7 +126,7 @@ public class TRexAboutWindowController : NSWindowController {
         self.textField.textStorage!.setAttributedString(self.appCredits)
     }
     
-    @IBAction func showEULA(sender: AnyObject) {
+    @IBAction func showEULA(_ sender: AnyObject) {
         if self.windowState != 1 {
             let amountToIncreaseHeight:CGFloat  = 100
             var oldFrame:NSRect = self.window!.frame
@@ -136,7 +138,7 @@ public class TRexAboutWindowController : NSWindowController {
         self.textField.textStorage!.setAttributedString(self.appEULA)
     }
     
-    @IBAction func showCopyright(sender: AnyObject) {
+    @IBAction func showCopyright(_ sender: AnyObject) {
         if self.windowState != 0 {
             let amountToIncreaseHeight:CGFloat  = -100
             var oldFrame:NSRect = self.window!.frame
@@ -149,18 +151,18 @@ public class TRexAboutWindowController : NSWindowController {
         self.textField.textStorage!.setAttributedString(self.appCopyright)
     }
     
-    public func windowShouldClose(sender: AnyObject) -> Bool {
+    open func windowShouldClose(_ sender: AnyObject) -> Bool {
         self.showCopyright(sender)
         return true
     }
     
-    override public func showWindow(sender: AnyObject?) {
+    override open func showWindow(_ sender: Any?) {
         super.showWindow(sender)
     }
     
     //Private
-    private func valueFromInfoDict(string:String) -> String {
-        let dictionary = NSBundle.mainBundle().infoDictionary!
+    fileprivate func valueFromInfoDict(_ string:String) -> String {
+        let dictionary = Bundle.main.infoDictionary!
         let result = dictionary[string] as! String
         return result
     }
