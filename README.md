@@ -8,7 +8,7 @@ Swift clone of PFAboutWindow
 Since there was no Swift version of this library I thought I'd convert it by myself. You can find a Swift clone of PFAboutWindow in this repository. Also the .xib file was migrated to use AutoLayout. Everything is supported except for localizing the Buttons. If you need to localize the buttons you have to add it by yourself by creating a Localizable.strings file. Feel free to add it on your own and create a pull request !
 
 ### Version
-1.4
+1.5.2
 
 ### Screenshots
 Before you download/install the application you can get a little sneak peek by looking at this screenshots:
