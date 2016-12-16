@@ -17,7 +17,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         self.aboutWindowController = TRexAboutWindowController(windowNibName: "PFAboutWindow")
         super.init()
     }
-
+    
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
     }
@@ -27,18 +27,18 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     @IBAction func showAboutWindow(_ sender:AnyObject) {
-        self.aboutWindowController.appURL = URL(string:"https://github.com/T-Rex-Editor/")!
+        self.aboutWindowController.appURL = URL(string:"https://github.com/T-Rex-Editor/")
         self.aboutWindowController.appName = "TRex-Editor"
-        let font:NSFont? = NSFont(name: "HelveticaNeue", size: 11.0)
-        let color:NSColor? = NSColor.tertiaryLabelColor
-        let attribs:[String:AnyObject] = [NSForegroundColorAttributeName:color!,
-            NSFontAttributeName:font!]
+        let font = NSFont(name: "HelveticaNeue", size: 11.0) ?? NSFont.systemFont(ofSize: 11.0)
+        let color = NSColor.tertiaryLabelColor
+        let attribs:[String:AnyObject] = [NSForegroundColorAttributeName:color,
+            NSFontAttributeName:font]
         
         
         self.aboutWindowController.appCopyright = NSAttributedString(string: "Copyright (c) 2015 David Ehlen", attributes: attribs)
         
         self.aboutWindowController.windowShouldHaveShadow = true
-        self.aboutWindowController .showWindow(nil)
+        self.aboutWindowController.showWindow(nil)
     }
 }
 
