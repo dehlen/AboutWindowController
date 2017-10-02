@@ -15,9 +15,7 @@ public enum WindowState {
 
 @objc(TRexAboutWindowController)
 open class TRexAboutWindowController : NSWindowController {
-    
-    var delegate: AppDelegate?
-    
+        
     @objc open var appName = ""
     open var appVersion = ""
     open var appCopyright = NSAttributedString()

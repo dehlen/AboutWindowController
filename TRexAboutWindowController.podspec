@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "TRexAboutWindowController"
-  s.version      = "1.5.4"
+  s.version      = "1.5.5"
   s.summary      = "A swift clone of PFAboutWindow to create an Xcode 6 like About Window."
 
   # This description is used to generate tags and improve search results.

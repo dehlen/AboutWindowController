@@ -47,7 +47,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         self.aboutWindowController.appCopyright = attributText
         
         self.aboutWindowController.windowShouldHaveShadow = true
-        aboutWindowController.delegate = self
         self.aboutWindowController.showWindow(self)
     }
 }
