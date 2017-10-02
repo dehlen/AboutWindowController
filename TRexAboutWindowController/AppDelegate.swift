@@ -14,7 +14,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var aboutWindowController:TRexAboutWindowController
     
     override init() {
-        self.aboutWindowController = TRexAboutWindowController(windowNibName: "PFAboutWindow")
+        self.aboutWindowController = TRexAboutWindowController(windowNibName: NSNib.Name(rawValue: "PFAboutWindow"))
         super.init()
     }
     
@@ -26,19 +26,29 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         // Insert code here to tear down your application
     }
     
+    func applicationShouldTerminateAfterLastWindowClosed (_ sender: NSApplication) -> Bool
+    {
+        return true
+    }
+    
     @IBAction func showAboutWindow(_ sender:AnyObject) {
+        aboutWindowController = TRexAboutWindowController(windowNibName: NSNib.Name(rawValue: "PFAboutWindow"))
         self.aboutWindowController.appURL = URL(string:"https://github.com/T-Rex-Editor/")
         self.aboutWindowController.appName = "TRex-Editor"
         let font = NSFont(name: "HelveticaNeue", size: 11.0) ?? NSFont.systemFont(ofSize: 11.0)
         let color = NSColor.tertiaryLabelColor
-        let attribs:[String:AnyObject] = [NSForegroundColorAttributeName:color,
-            NSFontAttributeName:font]
+        let attribs:[NSAttributedStringKey : AnyObject] = [.foregroundColor : color,
+            .font : font]
         
         
-        self.aboutWindowController.appCopyright = NSAttributedString(string: "Copyright (c) 2015 David Ehlen", attributes: attribs)
+        let attributText = NSMutableAttributedString(string: "Copyright (c) 2015 David Ehlen")
+        attributText.setAttributes(attribs, range: NSMakeRange(0, attributText.length))
+
+        self.aboutWindowController.appCopyright = attributText
         
         self.aboutWindowController.windowShouldHaveShadow = true
-        self.aboutWindowController.showWindow(nil)
+        aboutWindowController.delegate = self
+        self.aboutWindowController.showWindow(self)
     }
 }
 
