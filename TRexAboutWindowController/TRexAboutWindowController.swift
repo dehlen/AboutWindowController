@@ -59,8 +59,8 @@ open class TRexAboutWindowController : NSWindowController {
         if self.appCopyright.string.isEmpty {
             let font = NSFont(name: "HelveticaNeue", size: 11.0) ?? NSFont.systemFont(ofSize: 11.0)
             let color = floor(NSAppKitVersion.current.rawValue) <= Double((NSAppKitVersion.macOS10_9).rawValue) ? NSColor.lightGray : NSColor.tertiaryLabelColor
-            let attribs:[ String : Any] = [NSForegroundColorAttributeName : color,
-                                                          NSFontAttributeName: font]
+            let attribs:[ NSAttributedString.Key : Any] = [NSAttributedString.Key(rawValue: NSAttributedString.Key.foregroundColor.rawValue) : color,
+                                                           NSAttributedString.Key(rawValue: NSAttributedString.Key.font.rawValue): font]
             self.appCopyright = NSAttributedString(string: valueFromInfoDict("NSHumanReadableCopyright") ?? "", attributes:attribs)
         }
         
@@ -129,7 +129,7 @@ open class TRexAboutWindowController : NSWindowController {
     //Button Actions
     @IBAction func visitWebsite(_ sender: AnyObject) {
         guard let url = self.appURL else { return }
-        NSWorkspace.shared().open(url)
+        NSWorkspace.shared.open(url)
     }
     
     @IBAction func showCredits(_ sender: AnyObject) {
