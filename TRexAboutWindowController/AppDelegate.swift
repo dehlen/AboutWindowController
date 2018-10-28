@@ -14,7 +14,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var aboutWindowController:TRexAboutWindowController
     
     override init() {
-        self.aboutWindowController = TRexAboutWindowController(windowNibName: NSNib.Name(rawValue: "PFAboutWindow"))
+        self.aboutWindowController = TRexAboutWindowController(windowNibName: NSNib.Name("PFAboutWindow"))
         super.init()
     }
     
@@ -32,12 +32,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     @IBAction func showAboutWindow(_ sender:AnyObject) {
-        aboutWindowController = TRexAboutWindowController(windowNibName: NSNib.Name(rawValue: "PFAboutWindow"))
+        aboutWindowController = TRexAboutWindowController(windowNibName: NSNib.Name("PFAboutWindow"))
         self.aboutWindowController.appURL = URL(string:"https://github.com/T-Rex-Editor/")
         self.aboutWindowController.appName = "TRex-Editor"
         let font = NSFont(name: "HelveticaNeue", size: 11.0) ?? NSFont.systemFont(ofSize: 11.0)
         let color = NSColor.tertiaryLabelColor
-        let attribs:[NSAttributedStringKey : AnyObject] = [.foregroundColor : color,
+        let attribs:[NSAttributedString.Key : AnyObject] = [.foregroundColor : color,
             .font : font]
         
         
