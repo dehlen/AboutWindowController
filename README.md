@@ -61,7 +61,7 @@ You can also have a look at the Demo project to get an idea of how to integrate 
 ### Development
 
 Want to contribute? Great!
-You might want to check out the open issues or fork this repository to create a pull request. I'd love to see something like that.
+You might want to check out the open issues or fork this repository to create a pull request.
 
 ### Todo's
 - None yet, If you have a Todo please create an issue
