@@ -53,7 +53,7 @@ override init() {
 
 ```
 
-Then connect the IBAction `showAboutWindow` with the About menu entry or some button you want.
+Next connect the IBAction `showAboutWindow` with the About menu entry or some button you want.
 You can also have a look at the Demo project to get an idea of how to integrate this library into your project.
 
 [Demo Project](https://github.com/dehlen/TRexAboutWindowControllerDemo)
