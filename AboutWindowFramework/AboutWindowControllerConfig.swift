@@ -26,8 +26,7 @@ public struct AboutWindowControllerConfig {
     }
     
     private var appCredits: NSAttributedString {
-        let bundle = Bundle(for: AboutWindowController.self)
-        guard let creditsRtf = bundle.url(forResource: "Credits", withExtension: "rtf") else {
+        guard let creditsRtf = Bundle.main.url(forResource: "Credits", withExtension: "rtf") else {
             return NSAttributedString(string: "")
         }
         
@@ -42,9 +41,7 @@ public struct AboutWindowControllerConfig {
     }
     
     private var appEula: NSAttributedString {
-        let bundle = Bundle(for: AboutWindowController.self)
-
-        guard let eulaRtf = bundle.url(forResource: "EULA", withExtension: "rtf") else {
+        guard let eulaRtf = Bundle.main.url(forResource: "EULA", withExtension: "rtf") else {
             return NSAttributedString(string: "")
         }
         
