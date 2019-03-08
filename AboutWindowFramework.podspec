@@ -96,9 +96,10 @@ Pod::Spec.new do |s|
   #  Not including the public_header_files will make all headers public.
   #
 
-  s.source_files  = "AboutWindowFramework/**/*"
-  s.exclude_files = "AboutWindowFramework/**/Info.plist", "AboutWindowFramework/**/AboutWindowFramework.h"
-
+  s.source_files  = "AboutWindowFramework/**/*.swift"
+  s.resource_bundles = {
+    'AboutWindowFramework' => ['AboutWindowFramework/**/*.{rtf,xib}']
+  }
 
   # s.public_header_files = "Classes/**/*.h"
 
