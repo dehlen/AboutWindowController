@@ -1,11 +1,3 @@
-//
-//  ViewController.swift
-//  TRexAboutWindowController
-//
-//  Created by David Ehlen on 25.07.15.
-//  Copyright © 2015 David Ehlen. All rights reserved.
-//
-
 import Cocoa
 
 class ViewController: NSViewController {
@@ -21,7 +13,5 @@ class ViewController: NSViewController {
         // Update the view, if already loaded.
         }
     }
-
-
 }
 

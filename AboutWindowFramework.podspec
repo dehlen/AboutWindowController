@@ -1,5 +1,5 @@
 #
-#  Be sure to run `pod spec lint TRexAboutWindowController.podspec' to ensure this is a
+#  Be sure to run `pod spec lint AboutWindowFramework.podspec' to ensure this is a
 #  valid spec and to remove all comments including this before submitting the spec.
 #
 #  To learn more about Podspec attributes see http://docs.cocoapods.org/specification.html
@@ -15,8 +15,8 @@ Pod::Spec.new do |s|
   #  summary should be tweet-length, and the description more in depth.
   #
 
-  s.name         = "TRexAboutWindowController"
-  s.version      = "1.2"
+  s.name         = "AboutWindowFramework"
+  s.version      = "1.5.7"
   s.summary      = "A swift clone of PFAboutWindow to create an Xcode 6 like About Window."
 
   # This description is used to generate tags and improve search results.
@@ -33,8 +33,8 @@ Pod::Spec.new do |s|
                    * Change the background and text colors
                    DESC
 
-  s.homepage     = "https://github.com/dehlen/TRexAboutWindowController"
-  s.screenshots  = "https://raw.githubusercontent.com/dehlen/TRexAboutWindowController/master/screenshot1.png", "https://raw.githubusercontent.com/dehlen/TRexAboutWindowController/master/screenshot2.png"
+  s.homepage     = "https://github.com/dehlen/AboutWindowController"
+  s.screenshots  = "https://raw.githubusercontent.com/dehlen/AboutWindowController/master/screenshot1.png", "https://raw.githubusercontent.com/dehlen/AboutWindowController/master/screenshot2.png"
 
 
   # ―――  Spec License  ――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -74,7 +74,7 @@ Pod::Spec.new do |s|
 
   #  When using multiple platforms
   # s.ios.deployment_target = "5.0"
-  s.osx.deployment_target = "10.10"
+  s.osx.deployment_target = "10.11"
   # s.watchos.deployment_target = "2.0"
   # s.tvos.deployment_target = "9.0"
 
@@ -85,7 +85,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://github.com/dehlen/TRexAboutWindowController.git", :tag => s.version.to_s }
+  s.source       = { :git => "https://github.com/dehlen/AboutWindowController.git", :tag => s.version.to_s }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -96,8 +96,8 @@ Pod::Spec.new do |s|
   #  Not including the public_header_files will make all headers public.
   #
 
-  s.source_files  = "TRexAboutWindowController/**/TRexAboutWindowController.swift", "TRexAboutWindowController/**/PFAboutWindow.xib"
-  s.exclude_files = "TRexAboutWindowController/**/AppDelegate.swift", "TRexAboutWindowController/**/Assets.xcassets", "TRexAboutWindowController/**/Base.lproj", "TRexAboutWindowController/**/Credits.rtf", "TRexAboutWindowController/**/EULA.rtf", "TRexAboutWindowController/**/Info.plist", "TRexAboutWindowController/**/ViewController.swift"
+  s.source_files  = "AboutWindowFramework/**/*"
+  s.exclude_files = "AboutWindowFramework/**/Info.plist", "AboutWindowFramework/**/AboutWindowFramework.h"
 
 
   # s.public_header_files = "Classes/**/*.h"

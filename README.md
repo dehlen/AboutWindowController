@@ -1,4 +1,4 @@
-# TRexAboutWindowController
+# AboutWindowFramework
 Swift clone of PFAboutWindow
 
 ### PFAboutWindow
@@ -8,55 +8,50 @@ Swift clone of PFAboutWindow
 Since there was no Swift version of this library I thought I'd convert it by myself. You can find a Swift clone of PFAboutWindow in this repository. Also the .xib file was migrated to use AutoLayout. Everything is supported except for localizing the Buttons. If you need to localize the buttons you have to add it by yourself by creating a Localizable.strings file. Feel free to add it on your own and create a pull request !
 
 ### Version
-1.5.6
+1.5.7
 
 ### Screenshots
 Before you download/install the application you can get a little sneak peek by looking at this screenshots:
 
-![alt tag](https://raw.github.com/dehlen/TRexAboutWindowController/master/screenshot1.png)
+![alt tag](https://raw.github.com/dehlen/AboutWindowController/master/screenshot1.png)
 
-![alt tag](https://raw.github.com/dehlen/TRexAboutWindowController/master/screenshot2.png)
+![alt tag](https://raw.github.com/dehlen/AboutWindowController/master/screenshot2.png)
 
 ### Installation/Usage
 
 This library can be installed via Cocoapods:
 
 ```
-pod 'TRexAboutWindowController'
+pod 'AboutWindowFramework'
+```
+
+or Carthage:
+```
+github "dehlen/AboutWindowController"
 ```
 
 Then just add it to your project like so:
 
 ```swift
-import TRexAboutWindowController
+import AboutWindowFramework
 
-var aboutWindowController:TRexAboutWindowController
+lazy var aboutWindowControllerConfig: AboutWindowControllerConfig = {
+    let website = URL(string: "https://github.com/T-Rex-Editor")
+   
+    return AboutWindowControllerConfig(name: "App Name", version: nil, copyright: nil, credits: nil, creditsButtonTitle: "Credits", eula: nil, eulaButtonTitle: "EULA", url: website, hasShadow: true)
+}()
 
-override init() {
-        self.aboutWindowController = TRexAboutWindowController(windowNibName: "PFAboutWindow")
-        super.init()
+lazy var aboutWindowController: AboutWindowController = {
+    return AboutWindowController.create(with: aboutWindowControllerConfig)
+}()
+
+@IBAction func showAboutWindow(_ sender:AnyObject) {
+    aboutWindowController.showWindow(self)
 }
-
-@IBAction func showAboutWindow(sender:AnyObject) {
-        self.aboutWindowController.appURL = NSURL(string:"https://github.com/T-Rex-Editor/")!
-        self.aboutWindowController.appName = "TRex-Editor"
-        let font:NSFont? = NSFont(name: "HelveticaNeue", size: 11.0)
-        let color:NSColor? = NSColor.tertiaryLabelColor()
-        let attribs:[String:AnyObject] = [NSForegroundColorAttributeName:color!,
-            NSFontAttributeName:font!]
-        
-        self.aboutWindowController.appCopyright = NSAttributedString(string: "Copyright (c) 2015 David Ehlen", attributes: attribs)
-        
-        self.aboutWindowController.windowShouldHaveShadow = true
-        self.aboutWindowController .showWindow(nil)
-    }
 
 ```
 
 Next connect the IBAction `showAboutWindow` with the About menu entry or some button you want.
-You can also have a look at the Demo project to get an idea of how to integrate this library into your project.
-
-[Demo Project](https://github.com/dehlen/TRexAboutWindowControllerDemo)
 
 ### Development
 
@@ -71,7 +66,7 @@ You might want to check out the open issues or fork this repository to create a 
 
 The MIT License (MIT)
 
-Copyright (c) 2015 David Ehlen
+Copyright (c) 2019 David Ehlen
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

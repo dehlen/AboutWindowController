@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:TRexAboutWindowController.xcodeproj">
+      location = "self:/Users/dehlen/Downloads/TRexAboutWindowController/AboutWindowController.xcodeproj">
    </FileRef>
 </Workspace>
