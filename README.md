@@ -19,13 +19,8 @@ Before you download/install the application you can get a little sneak peek by l
 
 ### Installation/Usage
 
-This library can be installed via Cocoapods:
+This library can be installed via Carthage:
 
-```
-pod 'AboutWindowFramework'
-```
-
-or Carthage:
 ```
 github "dehlen/AboutWindowController"
 ```
