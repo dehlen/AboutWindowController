@@ -48,6 +48,19 @@ lazy var aboutWindowController: AboutWindowController = {
 
 Next connect the IBAction `showAboutWindow` with the About menu entry or some button you want.
 
+You can configure the screen with `AboutWindowControllerConfig`. However there are some defaults you might want to use:
+
+| Property      | Default           
+| ------------- |:-------------:|
+| Name      	   | **kCFBundleNameKey** |
+| Version       | Version \(**CFBundleShortVersionString**) (Build \(**CFBundleVersion**))      |
+| EULA 	      | **EULA.rtf** in your app bundle      |
+| Credits 	   | **Credits.rtf** in your app bundle     |
+| Copyright 	   | **NSHumanReadableCopyright**     |
+| Credits Button 	   | Acknowledgments     |
+| EULA Button 	   | License Agreement    |
+| Window Shadow 	   | on     |
+
 ### Development
 
 Want to contribute? Great!
